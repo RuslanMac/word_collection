@@ -1,0 +1,48 @@
+ {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+<div class="containder">
+<div class="row">
+  <form action="" method="post">
+    {{ form.hidden_tag()}}
+  <div class="col-md-2  col-md-offset-2">
+   {{ form.foreign_languages() }}
+  </div>
+  <div class="col-md-2 col-md-offset-2">
+    {{ form.submit() }}
+  </div>
+</form>
+</div>
+<div class="row">
+  <div class="col-md-8    col-md-offset-2">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Native Language</th>
+          <th scope="col">Foreign Language</th>
+          <th scope="col">Remarks</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+</div>
+
+	  {% for word in words %}
+        {% include '_words.html' %}
+    {% endfor %}
+    {% if previous_url %}
+    <a href="{{ previous_url }}">Previous page</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Next page</a>
+    {% endif %}
+
+{% endblock %}
+{% block scripts %}
+  {{ super()  }}
+  <script>
+    
+  </script>
+{% endblock %}

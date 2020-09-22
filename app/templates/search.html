@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block scripts %}
+{{ super()  }}
+<script>
+  $(window).load(function(){
+   
+    $.post('/get_languages'
+      ).done(function(response)
+      {
+        var languages = {}
+        var result = response;
+        for (var i=0, mp; i< result.languages.length; i++){
+            mp = result.languages[i];
+            languages[mp.id] = mp.language;
+        }
+        
+        /*for (var i=0, language; i<result.length; i++){
+
+          lit = result[i][0];
+          languages[lit] = result[i][1];
+        }*/
+        for (var key in languages){
+          $('#selectlanguage1').append($('<option>',{
+            value: key,
+            text: languages[key]
+          }));
+        }
+        for (var key in languages){
+          $('#selectlanguage2').append($('<option>',{
+            value: key,
+            text: languages[key]
+          }));
+        }
+        
+
+
+
+
+        $('#synonims_id').text(languages[0]);
+        console.log("it works");
+        
+       
+      })
+  });
+
+  function translate(sourceElem, destElem, sourceLanguage,  destLanguage){
+    if ($('#selectlanguage1 option:selected').text() != $('#selectlanguage2 option:selected').text()){
+    $.post('/translate', {
+      text: $(sourceElem).val(),
+      destLanguage: $(destLanguage).val(),
+      sourceLanguage: $(sourceLanguage).val()    
+
+      
+    }).done(function(response)
+      {
+        
+        var translate = response['text']['def'][0]['tr'][0]['text'];
+
+
+        var synonim = "";
+        var synonims = "";
+       
+        try {
+          synonims = response['text']['def'][0]['tr'][0]['syn'];
+        } catch(err)
+        {
+          synonims = "";
+        }
+        
+        for (i=0;i<synonims.length;i++){
+          synonim = synonim + synonims[i]['text'] + "; \r\n";
+
+        }
+
+        var meaning = "";
+        var meanings = response['text']['def'][0]['tr'][0]['mean'] || "";
+        for (i=0;i<meanings.length;i++){
+          meaning = meaning + meanings[i]['text'] + "; \r\n";
+        }
+        
+
+        $('#synonims_id').text(synonim);
+        $('#meanings_id').text(meaning);
+        $(destElem).text(response['text']);
+        $('#translation_id').text(translate);
+
+
+    }).fail(function(){
+      $(destElem).text("Server problems");
+    });
+
+  }
+
+
+
+  else{
+    $('#synonims_id').text('Chosen langauges must be different');
+  }
+}
+
+  function add_word(text, translation, foreign_Language){
+    $.post('/add_word', {
+      text: $(text).val(),
+      translation: $(translation).text(),
+      foreign_Language: $(foreign_Language).val()            
+    });     
+  };
+  
+
+  
+  
+
+    </script>
+{% endblock %}
+{% block app_content %}
+<div class="container">
+  <div class="row mb-5">
+    <form class="form-inline">
+      <div class="col-md-4-mb-5 col-md-offset-4 ">
+        <select class="form-control form-control-sm" id="selectlanguage1">
+        </select>
+          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"/>
+            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"/>
+          </svg>
+        <select class="form-control form-control-sm" id="selectlanguage2">
+        </select>
+      </div>
+      </div>
+      <div class="row">
+    	  <label class="sr-only" for="inlineFormInputName2">Nametx</label>
+        <div class="col-md-2 col-md-offset-5 ">
+    		<input type="text" class="form-control mb-2 mr-sm-2" id="word1" placeholder="Write a word here">
+    	    <span id="text_id">
+            <a href="javascript:translate(
+                                  '#word1',
+                                  '#translation_id', 
+                                  '#selectlanguage1',
+                                  '#selectlanguage2',
+                                  );">Translate please </a>
+          </span>
+        </div>
+       </div> 
+  	  </form>
+
+
+
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-stripped">
+      <thead>
+       <tr>
+          <th scope="col" >Characteristics</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>    
+          <th scope="row" >Translation: </th>
+          <td id="translation_id" ></td>
+        
+        </tr>
+        <tr>
+          <th scope="col" >Synonims: </th>
+          <td id="synonims_id" ></td>
+        </tr>
+        <tr>
+          <th scope="col" >Meanings: </th>
+          <td id="meanings_id" ></td>
+        </tr>
+        
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+    <a class="btn btn-primary" href="javascript:add_word('#word1', 
+                                                            '#translation_id',
+                                                            '#selectlanguage2',
+                                                            );" role="button">Remember the word</a>
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

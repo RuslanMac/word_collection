@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+	var count=0;
+	var temp_count=0;
+	var words;
+	var words_answer=[];
+	var words_result=[];
+		
+	
+	let word = {
+		foreign_word: "",
+		native_word: "",
+		native_word_true: ""
+	};
+
+	$(window).load(function(){
+		$.post('/get_words', {
+
+		}).done(function(response)
+		{
+			$('#button_true').addClass('disabled');
+		    $('#button_false').addClass('disabled');
+			words = response.words;
+
+		})
+	});
+
+	function Start(){
+		startTimer();
+		get_next_word_game();
+
+
+	}
+
+	function startTimer(){
+		$('#button_start').addClass('disabled');
+		$('#button_true').removeClass('disabled');
+		$('#button_false').removeClass('disabled');
+		var time_game = 35;
+		var minutes;
+		var seconds;
+		var x2= parseFloat(document.getElementById("lineClass").getAttribute("x2"));
+		var timer_id = setInterval(function(){
+			if (time_game == 0){
+				$('#button_start').removeClass('disabled');
+				$('#button_true').addClass('disabled');
+				$('#button_false').addClass('disabled');
+				clearInterval(timer_id);
+				document.getElementById("lineClass").setAttribute("x2", parseFloat(120));     
+
+				redirectPost('/words_errors_collection');
+
+
+
+				//$.redirectPost('/words_errors', JSON.stringify());
+			}
+			minutes = parseInt(time_game / 60);
+			seconds = parseInt(time_game % 60);
+
+			$('#timers_id').text(minutes+":"+seconds);  
+			
+			if (time_game % 10 == 0){
+	    		x2 = x2 -10;
+	    		document.getElementById("lineClass").setAttribute("x2", parseFloat(x2));
+			}
+
+			time_game = time_game - 1;
+
+		}, 1000);
+		setTimeout(timer_id,1);
+	}
+
+	function get_next_word_game(){
+		var count_words = parseInt(words.lenght);
+		var i = parseInt(Math.random()*3);
+		word.foreign_word = words[i].foreign_language;
+		word.native_word = words[i].native_language;
+		word.native_word_true = words[i].native_language_true;
+		word.answer = words[i].answer;
+		$('#foreign_words').text(word.foreign_word);
+		$('#native_words').text(word.native_word);
+		$('#text_count_id').text(10);
+	}
+
+	function check_answer(answer){
+		if (answer==word.answer){
+    		if (temp_count<0)
+    		{
+    			temp_count=5;
+    		}
+    		else{
+    			temp_count = temp_count + 5;
+
+    		};	
+	      		$('#textClass').css({fill: "#BBDB19"});
+	      		
+	      	}
+	    else{
+	    	if (temp_count>0){
+	    		temp_count=-5;
+	    	}
+	    	else
+	    	{
+	    		temp_count = temp_count - 5;
+	    	};
+	    	
+	    	$('#textClass').css({fill: "#1EABF2"});
+
+	    };
+	    words_result.push(word);
+	    count = count + temp_count;
+	    $('#textClass').text(temp_count);
+	    $('#count_id').text(count);
+	    $('#text_count_id').text(count);
+	    get_next_word_game();
+	}
+	function redirectPost(url){
+		var form = document.createElement('form');
+		document.body.appendChild(form);
+		form.method = 'post';
+		form.action = url;
+		var input = document.createElement('input');
+		input.type = 'hidden';
+		input.name = name;
+		input.value = JSON.stringify(words_result);
+		form.appendChild(input);
+		form.submit();
+	}
+</script>
+
+
+{% endblock %}
+{% block app_content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-1">
+			<div>
+				<h2 id="timers_id" style="text-align:center;"></h2>				
+			</div>
+			<svg width="180" height="56">
+				<style type="text/css">
+					@keyframes change_lines {
+						0% {
+							stroke:green;
+						}
+						20% {
+							stroke:blue;
+						}
+						40% {
+							stroke:yellow;
+						}
+						60% {
+							stroke:darkblue;
+						}
+						80% {
+							stroke:#1EABF2;
+						}
+						100% {
+							stroke:#BBDB19;
+						}
+					}
+					#lineClass{
+						animation-name: change_lines;
+						animation-duration:60s;
+						stroke: green;
+						stroke-width:7px;
+						stroke-linecap: round;
+
+					}
+				</style>
+				<line x1="10" y1="20" x2="120" y2="20" id="lineClass"></line>
+			</svg>
+			<a href="javascript:Start();" class="btn btn-lg btn-primary" id="button_start">Start</a>
+			</div>
+		<div class="col-md-2 col-md-offset-4">
+				<div class="card w-75 border-primary">
+        			<div class="card-body">
+            		<h2 class="card-title" id="foreign_words"></h2>
+            		<h2 class="card-text" id="native_words">Click "Start" button</h2>
+            		<a href="javascript:check_answer(1);" class="btn btn-lg btn-success"  id="button_true">True</a>
+            		<a href="javascript:check_answer(0);" class="btn btn-lg btn-danger"  id="button_false">False</a>
+   
+        			</div>
+        		</div>
+		</div>
+		<div class="col-md-3">
+			<svg viewbox="0 0 100 80" width="100" height="80">
+				<style type="text/css">
+					#textClass{
+						font-size: 24px;
+						fill:green;
+					}
+				</style>
+				
+				<text  text-anchor="middle" x="25" y="45"  id="textClass"></text>
+			</svg>
+		</div>
+					
+        <div class="col-md-2">
+       		<svg viewbox="0 0 200 320"    width="200" height="300">
+       			<style type="text/css">
+       				#classPoints {
+				    	stroke-width:4;
+				    	stroke:#BBDB19;
+				    	stroke-linejoin: round;
+				    }
+       			</style>
+       			<linearGradient id="Gradient2" >
+			    <stop offset="0%" stop-color="blue"/>
+			    <stop offset="50%" stop-color="green"/>
+			    <stop offset="100%" stop-color="white"/>
+      			</linearGradient>
+  				<polyline points="20,20 120,20 120,80 70,130 20,80 20,20" id="classPoints" fill="url(#Gradient2)"></polyline>
+  				<text fill="url(#polyline_id)" text-anchor="middle" x="70" y="10">Count:</text>
+  				<text fill="url(#polyline_id)" text-anchor="middle" x="70" y="80" id="text_count_id"></text>
+
+    	</svg>
+       		<p><span>Count:</span></p>
+       		<p></p>
+       </div>
+
+    </div>
+   
+</div>
+{% endblock %}

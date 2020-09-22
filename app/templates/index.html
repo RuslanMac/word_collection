@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+	<h1>Hi, {{ user }}</h1>
+	<form action="" method="post" >
+		{{ form.hidden_tag() }}
+	<ul class="nav nav-tabs">
+  		<li class="nav-item">
+   			Languages: {{ form.languages }}
+  		</li>
+  		<li>
+ 		 	Topic:      {{ form.topic}}
+ 		 </li>
+  		<li class="nav-item">
+    		{{ form.submit() }}
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link disabled" href="#">Disabled</a>
+  		</li>
+	</ul>
+	</form>
+	{% for news in newsapi %}
+		{% include '_articles.html' %} 
+	{% endfor %}
+
+{% endblock %}
+

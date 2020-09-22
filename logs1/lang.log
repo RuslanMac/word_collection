@@ -1,0 +1,44 @@
+2020-09-22 00:59:01,640 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
+AttributeError: 'NoneType' object has no attribute 'words'
+2020-09-22 01:02:19,775 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:06:57,018 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:06:58,809 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
+    words = Dictionary.query.filter_by(id = language_id).first().words.paginate(
+AttributeError: 'NoneType' object has no attribute 'words'
+2020-09-22 01:07:35,131 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:31:14,142 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:34:10,942 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:54:12,523 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+	<ul class="nav nav-tabs">
+  		<li class="nav-item">
+   			Languages: {{ form.languages }}
+  		</li>
+  		<li>
+ 		 	Topic:      {{ form.topic}}
+ 		 </li>
+  		<li class="nav-item">
+    		<a class="nav-link" href="#">Link</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link disabled" href="#">Disabled</a>
+  		</li>
+	</ul>
+{% endblock %}
