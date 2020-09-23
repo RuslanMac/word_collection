@@ -1,4 +1,4 @@
-2020-09-21 20:21:25,025 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-21 23:01:18,692 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,26 +14,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:22:20,909 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:29:43,872 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:29:48,038 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_everything()
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 326, in get_everything
+    raise NewsAPIException(r.json())
+newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing, the scope of your search is too broad. Please set any of the following required parameters and try again: q, qInTitle, sources, domains.'}
+2020-09-21 23:02:36,273 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:04:29,842 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:05:15,691 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:05:40,306 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:06:00,557 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:06:55,765 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:07:53,678 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:09:47,038 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:09:49,690 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -49,25 +43,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:30:33,863 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:30:43,069 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(category=form.topic.data, language=form.languages.data)
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
+    raise NewsAPIException(r.json())
+newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
+2020-09-21 23:10:52,615 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:10:56,312 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -83,25 +65,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:30:55,671 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:30:57,199 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(category=str(form.topic.data), language=str(form.languages.data))
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 120, in get_top_headlines
+    raise ValueError("invalid language")
+ValueError: invalid language
+2020-09-21 23:11:24,782 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:11:26,385 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -117,20 +87,30 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(category=str(form.topic.data))
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 140, in get_top_headlines
+    raise ValueError("invalid category")
+ValueError: invalid category
+2020-09-21 23:12:16,295 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:13:54,719 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:16:25,163 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:20:24,010 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:42:33,212 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:47:52,911 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:48:03,139 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:48:04,997 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-09-21 23:49:01,736 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:49:11,054 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:50:30,412 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:02:55,161 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]

@@ -1,4 +1,4 @@
-2020-09-22 00:59:01,640 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-23 01:34:24,092 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,12 +14,49 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
-AttributeError: 'NoneType' object has no attribute 'words'
-2020-09-22 01:02:19,775 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 01:06:57,018 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 01:06:58,809 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
+    languages = [Language.query.filter_by(id = dictionary).first() for dictionary in current_user.languages]
+  File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
+    languages = [Language.query.filter_by(id = dictionary).first() for dictionary in current_user.languages]
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1893, in filter_by
+    clauses = [
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1894, in <listcomp>
+    _entity_descriptor(self._joinpoint_zero(), key) == value
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 219, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 367, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\annotation.py", line 104, in __eq__
+    return self.__element.__class__.__eq__(self, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 759, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "<string>", line 1, in <lambda>
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 67, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 105, in _boolean_compare
+    obj = _check_literal(expr, op, obj)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 373, in _check_literal
+    return expr._bind_param(operator, other, type_=bindparam_type)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4219, in _bind_param
+    return BindParameter(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 1230, in __init__
+    self.type = _compared_to_type.coerce_compared_value(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 578, in coerce_compared_value
+    _coerced_type = _resolve_value_to_type(value)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 3024, in _resolve_value_to_type
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Object <Dictionary 3, user_id 2, language_id 1> is not legal as a SQL literal value
+2020-09-23 01:34:41,166 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:36:44,904 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:37:20,178 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,10 +72,6 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
-    words = Dictionary.query.filter_by(id = language_id).first().words.paginate(
-AttributeError: 'NoneType' object has no attribute 'words'
-2020-09-22 01:07:35,131 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 01:31:14,142 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 01:34:10,942 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 01:54:12,523 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+  File "C:\Users\1\web_app\app\routes.py", line 152, in add_word
+    dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
+AttributeError: 'NoneType' object has no attribute 'id'

@@ -5,7 +5,7 @@
 <script>
   $(window).load(function(){
    
-    $.post('/get_languages'
+    $.post('/get_languages/1'
       ).done(function(response)
       {
         var languages = {}
@@ -36,7 +36,7 @@
 
 
 
-
+ 
         $('#synonims_id').text(languages[0]);
         console.log("it works");
         
@@ -60,30 +60,39 @@
 
         var synonim = "";
         var synonims = "";
+        var meaning = "";
+        var meanings="";
        
         try {
-          synonims = response['text']['def'][0]['tr'][0]['syn'];
+          synonims = response['text']['def'][0]['tr'][0]['syn'];               
+          for (i=0;i<synonims.length;i++){
+          synonim = synonim + synonims[i]['text'] + "; \r\n";
+
+        }
         } catch(err)
         {
           synonims = "";
         }
-        
-        for (i=0;i<synonims.length;i++){
-          synonim = synonim + synonims[i]['text'] + "; \r\n";
-
+        try{
+          var meanings = response['text']['def'][0]['tr'][0]['mean'];
+          for (i=0;i<meanings.length;i++){
+            meaning = meaning + meanings[i]['text'] + "; \r\n";
         }
 
-        var meaning = "";
-        var meanings = response['text']['def'][0]['tr'][0]['mean'] || "";
-        for (i=0;i<meanings.length;i++){
-          meaning = meaning + meanings[i]['text'] + "; \r\n";
+        } catch(err)
+        {
+          meaning="";
         }
-        
 
+
+        
+        
         $('#synonims_id').text(synonim);
         $('#meanings_id').text(meaning);
         $(destElem).text(response['text']);
         $('#translation_id').text(translate);
+        
+        
 
 
     }).fail(function(){

@@ -142,17 +142,19 @@ def test1x():
 @application.route('/translate', methods=['POST'])
 @login_required
 def translate_text():
-	return jsonify({'text': translate(request.form['text'],request.form['destLanguage'], request.form['sourceLanguage'])})
+	return jsonify({'text': translate(request.form['text'],request.form['destLanguage'],request.form['sourceLanguage'] or Language.query.filter_by(id = current_user.language).first().lit)})         
 
 @application.route('/add_word', methods=['POST'])
 @login_required
 def add_word():
-	word = Word(native_language = request.form['text'], foreign_language = request.form['translation'], dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
+	word = Word(native_language = request.form['text'],
+				foreign_language= request.form['translation'], 
+				dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
 	db.session.add(word)
 	db.session.commit()
 	flash(_('The word has been added in the dictionary ! '))
 	return render_template('search.html', title='Search')
-
+ 
 
 
 @application.route('/get_words', methods=['POST', 'GET'])
@@ -213,9 +215,16 @@ def initPage():
 
 
 
-@application.route('/get_languages', methods=['POST']) 
+@application.route('/get_languages/<learnings>', methods=['POST']) 
 @login_required
-def get_languages():
-	languages = Language.query.all()
-	languages2 = [{"id": language.id, "language": language.language} for language in languages]
-	return jsonify({'languages': languages2})
+def get_languages(learnings):
+	if learnings == str(1):
+		languages = [Language.query.filter_by(id = dictionary.language_id).first() for dictionary in current_user.languages]
+		languages.append(Language.query.filter_by(id = current_user.language.id).first())
+		languages = [{"id": language.lit, "language": language.language} for language in languages]
+		
+		return jsonify({'languages': languages})
+	else:
+		languages = Language.query.all()
+		languages2 = [{"id": language.lit, "language": language.language} for language in languages]
+		return jsonify({'languages': languages2})

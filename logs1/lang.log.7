@@ -1,5 +1,4 @@
-2020-09-21 20:33:14,384 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:33:15,265 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-22 00:03:01,301 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,25 +14,38 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:33:48,408 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:33:50,653 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 118, in get_mywords
+    return render_template('mywords.html', title='Dictionary', words = words.items, next_url = next_url, previous_url = previous_url , form=dictionaryForm)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\1\web_app1\app\templates\mywords.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\1\web_app1\app\templates\base.html", line 2, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\1\web_app1\app\templates\base.html", line 52, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\1\web_app1\app\templates\mywords.html", line 12, in block "app_content"
+    {{ form.sumbit() }}
+jinja2.exceptions.UndefinedError: 'app.forms.DictionaryForm object' has no attribute 'sumbit'
+2020-09-22 00:03:40,514 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:03:45,752 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:03:47,742 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -49,24 +61,37 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:33:52,162 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 118, in get_mywords
+    return render_template('mywords.html', title='Dictionary', words = words.items, next_url = next_url, previous_url = previous_url , form=dictionaryForm)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\1\web_app1\app\templates\mywords.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\1\web_app1\app\templates\base.html", line 2, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\1\web_app1\app\templates\base.html", line 52, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\1\web_app1\app\templates\mywords.html", line 12, in block "app_content"
+    {{ form.submit() }}
+jinja2.exceptions.UndefinedError: 'app.forms.DictionaryForm object' has no attribute 'submit'
+2020-09-22 00:04:27,035 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:04:32,098 ERROR: Exception on /mywords [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -82,25 +107,15 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:37:31,347 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 20:38:09,694 ERROR: Exception on /yes_not [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 111, in get_mywords
+    words = current_user.languages[language_id].words.paginate(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 323, in __getitem__
+    return self._clone(sess).__getitem__(index)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3154, in __getitem__
+    return list(self[item : item + 1])[0]
+IndexError: list index out of range
+2020-09-22 00:12:43,067 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:12:45,129 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -116,21 +131,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 122, in yes_not
-    return render_template('game_yes_not.html', title = 'True or False Game')
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: game_yes_not.html
-2020-09-21 20:40:49,201 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+  File "C:\Users\1\web_app1\app\routes.py", line 110, in get_mywords
+    dictionary_id = current_user.languages.filter_by(language_id = language_id).first().id
+AttributeError: 'NoneType' object has no attribute 'id'
+2020-09-22 00:13:27,399 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]

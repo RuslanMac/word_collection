@@ -1,16 +1,112 @@
 {% extends "base.html" %}
+{% block scripts %}
+{{ super() }}
+  <script type="text/javascript">
+      function getSelectionText(){
+        var txt='';
+        if (txt = window.getSelection){
+          txt = window.getSelection();
+        }
+        else{
 
+          txt = document.selection.CreateRange().text;
+        }
+
+        return txt;
+      }
+    if ($(window).width() > 400){
+        $(window).scroll(function(){
+
+          if ($(this).scrollTop() > 0) {
+            $('#navbar').addClass("fixed-top");
+            $('body').css('padding-top', $('.navbar').outerHeight() + 'px');
+            $('#navbar1S').css('top', 0);
+
+          }else{
+            $('#navbar').removeClass('fixed-top');
+            $('body').css('padding-top', '0');
+            $('#navbar1S').css('top', 50);
+          }
+        });
+      } 
+
+    function translate(){
+      
+      
+      $('#exampleModalCenter').modal('show');
+        answer = getSelectionText();
+      $.post('/translate', {
+  
+        text: answer,
+        destLanguage: $('#selectlanguage1').val(),
+        sourceLanguage:   "None"
+
+        
+      }).done(function(response)
+        {
+        var translate_result = response['text']['def'][0]['tr'][0]['text'];
+        $('#source_words').text(getSelectionText());
+        $('#translate_words').text(translate_result);
+        $('#exampleModalCenter').modal('show');
+
+      }).fail(function(){
+        $('#source_words').text(getSelectionText());
+        $('#exampleModalCenter').modal('show');
+      });
+    }
+    
+
+  </script>
+{% endblock %}
+{% block navbar %}
+{{ super() }} 
+ <nav class="navbar navbar-default sticky-top " style="position: fixed; top:50;" id="navbar1S">
+  <div class="container">
+  <div class="navbar-header" id="main_nav">
+  <ul class="navbar-nav">
+   <input class="form-control mr-sm-2"      type="search" name="searchWords" placeholder="Search">
+   <span id="text_id">
+            <a href="javascript:translate();">Translate please </a>
+          </span>
+  </ul>
+  </div> <!-- navbar-collapse.// -->
+</div><!-- container //  -->
+</nav> 
+{% endblock %}
 {% block app_content %}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Word translation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="source_words"></p>
+        <p id="translate_words"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	<h1>Hi, {{ user }}</h1>
 	<form action="" method="post" >
 		{{ form.hidden_tag() }}
 	<ul class="nav nav-tabs">
-  		<li class="nav-item">
-   			Languages: {{ form.languages }}
-  		</li>
   		<li>
- 		 	Topic:      {{ form.topic}}
- 		 </li>
+       {{ form.languages }}
+      </li>
   		<li class="nav-item">
     		{{ form.submit() }}
   		</li>
@@ -19,6 +115,8 @@
   		</li>
 	</ul>
 	</form>
+
+ 
 	{% for news in newsapi %}
 		{% include '_articles.html' %} 
 	{% endfor %}

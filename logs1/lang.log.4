@@ -1,4 +1,4 @@
-2020-09-21 23:01:18,692 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-22 00:59:01,640 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,20 +14,12 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_everything()
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 326, in get_everything
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing, the scope of your search is too broad. Please set any of the following required parameters and try again: q, qInTitle, sources, domains.'}
-2020-09-21 23:02:36,273 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:04:29,842 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:05:15,691 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:05:40,306 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:06:00,557 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:06:55,765 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:07:53,678 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:09:47,038 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:09:49,690 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
+AttributeError: 'NoneType' object has no attribute 'words'
+2020-09-22 01:02:19,775 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:06:57,018 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:06:58,809 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,13 +35,54 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(category=form.topic.data, language=form.languages.data)
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
-2020-09-21 23:10:52,615 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:10:56,312 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
+    words = Dictionary.query.filter_by(id = language_id).first().words.paginate(
+AttributeError: 'NoneType' object has no attribute 'words'
+2020-09-22 01:07:35,131 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:31:14,142 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:34:10,942 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 01:54:12,523 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 12:16:57,343 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 13:55:21,271 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:23:29,786 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:23:46,770 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\util\connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\1\AppData\Local\Programs\Python\Python38-32\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connectionpool.py", line 976, in _validate_conn
+    conn.connect()
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x04F21928>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\connectionpool.py", line 724, in urlopen
+    retries = retries.increment(
+  File "c:\users\1\web_app1\venv\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/top-headlines?language=ru (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x04F21928>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,52 +98,39 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(category=str(form.topic.data), language=str(form.languages.data))
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 120, in get_top_headlines
-    raise ValueError("invalid language")
-ValueError: invalid language
-2020-09-21 23:11:24,782 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:11:26,385 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(category=str(form.topic.data))
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 140, in get_top_headlines
-    raise ValueError("invalid category")
-ValueError: invalid category
-2020-09-21 23:12:16,295 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:13:54,719 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:16:25,163 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:20:24,010 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:42:33,212 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:47:52,911 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:48:03,139 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:48:04,997 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1968, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2097, in make_response
-    raise TypeError(
-TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
-2020-09-21 23:49:01,736 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:49:11,054 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:50:30,412 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 00:02:55,161 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+  File "C:\Users\1\web_app\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(language = form.languages.data or 'ru')
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 165, in get_top_headlines
+    r = self.request_method.get(const.TOP_HEADLINES_URL, auth=self.auth, timeout=30, params=payload)
+  File "c:\users\1\web_app1\venv\lib\site-packages\requests\api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/top-headlines?language=ru (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x04F21928>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2020-09-22 20:24:13,565 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:29:36,830 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:30:22,506 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:33:58,749 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:37:17,425 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:38:12,969 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:46:21,951 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:48:44,091 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:50:13,842 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:53:08,954 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:53:55,986 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:54:07,757 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:58:21,742 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:58:26,045 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 20:59:34,860 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 21:10:23,966 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 21:10:34,611 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 21:11:20,508 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 21:15:19,986 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 21:16:14,305 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-22 21:17:34,720 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]

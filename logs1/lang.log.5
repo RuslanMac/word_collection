@@ -1,4 +1,4 @@
-2020-09-21 22:45:05,853 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-22 00:53:35,509 ERROR: Exception on /mywords [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,11 +14,15 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(language=form.languages.data, category=form.topic.data)
-NameError: name 'NEWSAPI' is not defined
-2020-09-21 22:45:54,217 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:45:57,187 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
+    words = current_user.languages[language_id or 0].words.paginate(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 323, in __getitem__
+    return self._clone(sess).__getitem__(index)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3154, in __getitem__
+    return list(self[item : item + 1])[0]
+IndexError: list index out of range
+2020-09-22 00:54:09,880 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:54:12,889 ERROR: Exception on /mywords [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,13 +38,15 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(language=form.languages.data, category=form.topic.data)
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
-2020-09-21 22:47:46,139 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:47:51,017 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages[language_id or 0].words.paginate(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 323, in __getitem__
+    return self._clone(sess).__getitem__(index)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3154, in __getitem__
+    return list(self[item : item + 1])[0]
+IndexError: list index out of range
+2020-09-22 00:57:05,383 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:57:07,252 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -56,14 +62,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(category=form.languages.data, language = form.languages.data)
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
-2020-09-21 22:48:35,684 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:59:08,982 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:59:12,009 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages.filter_by(id = dictionary_id).first().words.paginate(
+NameError: name 'dictionary_id' is not defined
+2020-09-22 00:57:28,025 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:57:30,165 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -79,11 +82,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.everything(category = form.topic.data, language = form.languages.data)
-AttributeError: 'NewsApiClient' object has no attribute 'everything'
-2020-09-21 23:00:11,383 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:00:14,256 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
+AttributeError: 'NoneType' object has no attribute 'words'
+2020-09-22 00:57:43,106 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:57:44,342 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -99,11 +102,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_everything(category = form.topic.data, language = form.languages.data)
-TypeError: get_everything() got an unexpected keyword argument 'category'
-2020-09-21 23:00:29,226 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:00:31,493 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages.filter_by(id = language_id).words.paginate(
+AttributeError: 'BaseQuery' object has no attribute 'words'
+2020-09-22 00:59:00,146 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:59:00,703 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -119,9 +122,6 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_everything(language = form.languages.data)
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 326, in get_everything
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing, the scope of your search is too broad. Please set any of the following required parameters and try again: q, qInTitle, sources, domains.'}
-2020-09-21 23:01:15,368 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
+    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
+AttributeError: 'NoneType' object has no attribute 'words'

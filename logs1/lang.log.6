@@ -1,13 +1,4 @@
-2020-09-21 20:51:59,490 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:07:58,359 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:11:00,734 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:11:39,053 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:18:54,111 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:21:24,402 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:22:50,950 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:28:03,253 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:44:23,678 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:44:28,390 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-22 00:13:29,046 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -23,11 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 105, in get_mywords
-    words = current_user.languages[language.id].words.paginate(
-AttributeError: 'NoneType' object has no attribute 'id'
-2020-09-21 21:46:25,511 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:46:27,289 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 110, in get_mywords
+    dictionary_id = current_user.languages.filter_by(language_id = language_id).first().id
+UnboundLocalError: local variable 'language_id' referenced before assignment
+2020-09-22 00:15:59,074 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:16:00,696 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,12 +34,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 106, in get_mywords
-    page, application.config['Words'], False)
-KeyError: 'Words'
-2020-09-21 21:47:09,324 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:47:21,477 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:47:23,185 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
+    words = current_user.languages[language_id].words.paginate(
+UnboundLocalError: local variable 'language_id' referenced before assignment
+2020-09-22 00:16:56,227 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:16:57,741 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -64,11 +54,15 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 106, in get_mywords
-    page, application.config['WORDS_PER_PAGS'], False)
-KeyError: 'WORDS_PER_PAGS'
-2020-09-21 21:47:31,864 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 21:47:33,370 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
+    words = current_user.languages[dictionary_id].words.paginate(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 323, in __getitem__
+    return self._clone(sess).__getitem__(index)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3154, in __getitem__
+    return list(self[item : item + 1])[0]
+IndexError: list index out of range
+2020-09-22 00:50:51,184 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:50:52,931 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,13 +79,10 @@ Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
   File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    return render_template('mywords.html', title='Dictionary', words = words.items, next_url = next_url, previous_url = prev_url, form=dictionaryForm)
-NameError: name 'prev_url' is not defined
-2020-09-21 21:48:01,249 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:15:38,752 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:19:31,905 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:43:51,788 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:43:58,150 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+    language = Language.query.filter_by(id = dictionary_id).first()
+UnboundLocalError: local variable 'dictionary_id' referenced before assignment
+2020-09-22 00:51:47,441 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:51:57,173 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -107,11 +98,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 18, in index
-    newsapi = NEWSAPI.get_top_headlines(language=form.languages.data, category=form.topic.data)
-NameError: name 'NEWSAPI' is not defined
-2020-09-21 22:44:27,228 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:44:31,520 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app1\app\routes.py", line 107, in get_mywords
+    dictionaryForm.foreign_languages.choices = [language for language in languages]
+NameError: name 'languages' is not defined
+2020-09-22 00:52:25,029 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:52:26,860 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -127,7 +118,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 15, in index
-    newsapi = app.config['NEWSAPI']
-NameError: name 'app' is not defined
-2020-09-21 22:45:04,038 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
+    language = Language.query.filter_by(id = dictionary_id).first()
+UnboundLocalError: local variable 'dictionary_id' referenced before assignment
+2020-09-22 00:52:51,664 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:53:31,082 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
