@@ -1,4 +1,4 @@
-2020-09-22 00:53:35,509 ERROR: Exception on /mywords [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-23 00:54:10,851 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,15 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 113, in get_mywords
-    words = current_user.languages[language_id or 0].words.paginate(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 323, in __getitem__
-    return self._clone(sess).__getitem__(index)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3154, in __getitem__
-    return list(self[item : item + 1])[0]
-IndexError: list index out of range
-2020-09-22 00:54:09,880 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 00:54:12,889 ERROR: Exception on /mywords [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app\app\routes.py", line 150, in add_word
+    word = Word(native_language = request.form['text'], foreign_language = request.form['translation'], dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
+AttributeError: 'NoneType' object has no attribute 'id'
+2020-09-23 01:03:02,339 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:03:04,705 ERROR: Exception on /get_languages/True [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -38,15 +34,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    words = current_user.languages[language_id or 0].words.paginate(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 323, in __getitem__
-    return self._clone(sess).__getitem__(index)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3154, in __getitem__
-    return list(self[item : item + 1])[0]
-IndexError: list index out of range
-2020-09-22 00:57:05,383 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 00:57:07,252 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app\app\routes.py", line 224, in get_languages
+    languages2 = [{"id": language.lit, "language": language.language} for language in languages]
+UnboundLocalError: local variable 'languages' referenced before assignment
+2020-09-23 01:03:37,278 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:04:24,727 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:04:38,410 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:13:34,503 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:14:21,412 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -62,11 +57,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    words = current_user.languages.filter_by(id = dictionary_id).first().words.paginate(
-NameError: name 'dictionary_id' is not defined
-2020-09-22 00:57:28,025 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 00:57:30,165 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app\app\routes.py", line 150, in add_word
+    word = Word(native_language = Language.query.filter_by(lit =    request.form['text']).first().id,foreing_language= Language.query.filter_by(lit= request.form['translation']).first().id, dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
+AttributeError: 'NoneType' object has no attribute 'id'
+2020-09-23 01:19:50,595 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:20:04,464 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -82,11 +77,23 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
-AttributeError: 'NoneType' object has no attribute 'words'
-2020-09-22 00:57:43,106 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 00:57:44,342 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app\app\routes.py", line 150, in add_word
+    word = Word(native_language = request.form['text'],
+  File "<string>", line 4, in __init__
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\state.py", line 433, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\state.py", line 430, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 839, in _declarative_constructor
+    raise TypeError(
+TypeError: 'foreing_language' is an invalid keyword argument for Word
+2020-09-23 01:20:47,943 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:22:49,801 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:22:51,804 ERROR: Exception on /get_languages/True [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -102,26 +109,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    words = current_user.languages.filter_by(id = language_id).words.paginate(
-AttributeError: 'BaseQuery' object has no attribute 'words'
-2020-09-22 00:59:00,146 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-22 00:59:00,703 ERROR: Exception on /mywords [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 112, in get_mywords
-    words = current_user.languages.filter_by(id = language_id).first().words.paginate(
-AttributeError: 'NoneType' object has no attribute 'words'
+  File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
+    languages = [{"id": language.lit, "language": language.language} for language in languages]
+  File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
+    languages = [{"id": language.lit, "language": language.language} for language in languages]
+AttributeError: 'Dictionary' object has no attribute 'lit'
+2020-09-23 01:23:28,483 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:24:11,713 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:24:41,464 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:27:06,108 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:27:34,352 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]

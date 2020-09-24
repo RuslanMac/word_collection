@@ -18,18 +18,18 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('edit_profile') }}" >Edit your profile</a></li>
+                    <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                    <li><a href="{{ url_for('edit_profile') }}" >{{ _('Edit your profile') }}</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
                     {% else %}
-                    <li><a href="{{ url_for('search') }}">Search </a></li>
-                    <li><a href="{{ url_for('games')     }}">Games</a></li>
-                    <li><a href="{{ url_for('get_mywords') }}">Dictionary</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    <li><a href="{{ url_for('search') }}">{{ _('Search') }} </a></li>
+                    <li><a href="{{ url_for('games')     }}">{{ _('Games') }}</a></li>
+                    <li><a href="{{ url_for('get_mywords') }}">{{ _('Dictionary') }}</a></li>
+                    <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
                     {% endif %}
                 </ul>
             </div>

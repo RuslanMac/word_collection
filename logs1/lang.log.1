@@ -1,117 +1,128 @@
-2020-09-23 01:34:24,092 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-24 20:18:36,832 ERROR: Exception on /... [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "c:\users\1\web_app1\venv\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "C:\Users\1\web_app5\word_collection\app\errors.py", line 7, in not_found_error
+    return render_template('404.html'), 404
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2020-09-24 20:26:16,557 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:35]
+2020-09-24 20:26:21,409 ERROR: Exception on /... [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
-    languages = [Language.query.filter_by(id = dictionary).first() for dictionary in current_user.languages]
-  File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
-    languages = [Language.query.filter_by(id = dictionary).first() for dictionary in current_user.languages]
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1893, in filter_by
-    clauses = [
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1894, in <listcomp>
-    _entity_descriptor(self._joinpoint_zero(), key) == value
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 219, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 367, in operate
-    return op(self.__clause_element__(), *other, **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\annotation.py", line 104, in __eq__
-    return self.__element.__class__.__eq__(self, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 759, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "<string>", line 1, in <lambda>
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 67, in operate
-    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 105, in _boolean_compare
-    obj = _check_literal(expr, op, obj)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 373, in _check_literal
-    return expr._bind_param(operator, other, type_=bindparam_type)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4219, in _bind_param
-    return BindParameter(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 1230, in __init__
-    self.type = _compared_to_type.coerce_compared_value(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 578, in coerce_compared_value
-    _coerced_type = _resolve_value_to_type(value)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 3024, in _resolve_value_to_type
-    raise exc.ArgumentError(
-sqlalchemy.exc.ArgumentError: Object <Dictionary 3, user_id 2, language_id 1> is not legal as a SQL literal value
-2020-09-23 01:34:41,166 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:36:44,904 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:37:20,178 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "c:\users\1\web_app1\venv\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "C:\Users\1\web_app5\word_collection\app\errors.py", line 7, in not_found_error
+    return render_template('404.html'), 404
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2020-09-24 20:26:28,419 ERROR: Exception on /... [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 152, in add_word
-    dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
-AttributeError: 'NoneType' object has no attribute 'id'
-2020-09-23 13:38:49,968 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 13:38:58,368 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 16:42:08,159 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:00:17,234 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:01:08,235 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:01:45,503 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:02:18,388 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:02:32,447 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:04:23,767 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:11:31,514 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:11:34,566 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:13:23,860 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:15:28,005 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:15:38,105 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:15:48,713 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:18:28,204 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:18:44,377 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "c:\users\1\web_app1\venv\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app5\word_collection\app\routes.py", line 157, in add_word
-    dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=foreign_language).first().id).filter_by(user_id = current_user.id).first().id)
-AttributeError: 'NoneType' object has no attribute 'id'
-2020-09-23 17:20:43,212 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:24:49,429 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:25:04,781 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:29:44,587 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
-2020-09-23 17:33:12,935 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "C:\Users\1\web_app5\word_collection\app\errors.py", line 7, in not_found_error
+    return render_template('404.html'), 404
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\1\web_app1\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2020-09-24 20:27:55,933 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:35]
