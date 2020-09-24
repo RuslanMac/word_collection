@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext as _l
 from flask import request
 from logging.handlers import RotatingFileHandler
 
@@ -16,6 +16,8 @@ application.config.from_object(Config)
 db = SQLAlchemy(application)
 migrate = Migrate(application, db)
 login = LoginManager(application)
+login.login_view = 'login'
+login.login_message = _l('please log in to access this page')
 bootstrap = Bootstrap(application)
 babel = Babel(application)
 from app import routes, models

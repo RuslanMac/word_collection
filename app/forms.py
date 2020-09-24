@@ -14,13 +14,13 @@ class LoginForm(FlaskForm):
 
 class RegistrationForm(FlaskForm):
 	username = StringField(_l('Username'), validators=[DataRequired()])
-	email = StringField('Email',validators=[DataRequired(), Email()])
+	email = StringField(_l('Email' ),validators=[DataRequired(), Email()])
 	password = PasswordField(_l('Password'), validators=[DataRequired()])
 	password2 = PasswordField(
 		_l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])
-	my_language = SelectField('My language', coerce=int)
+	my_language = SelectField(_l('My language'), coerce=int)
 	#languages = SelectField('Foreign language', coerce=int)
-	languages1 = SelectMultipleField('Foreign Languages', coerce=int)
+	languages1 = SelectMultipleField(_l('Foreign Languages'), coerce=int)
 	submit = SubmitField(_l('Register'))
 
 
@@ -44,13 +44,13 @@ class DictionaryForm(FlaskForm):
 
 
 class AddWordForm(FlaskForm):
-	languages = SelectField('Language', coerce=int)
-	submit = SubmitField('Add word')
+	languages = SelectField(_l('Language'), coerce=int)
+	submit = SubmitField(_l('Add word') )
 	
 
 class EditProfileForm(FlaskForm):
 	username = StringField(_l('Username'), validators=[DataRequired()])
-	languages = SelectField('Foreign language', coerce=int)
+	languages = SelectField(_l('Foreign language'), coerce=int)
 	submit = SubmitField(_l('Submit'))
 
 	def __init__(self,original_username, *args, **kwargs):
@@ -64,8 +64,8 @@ class EditProfileForm(FlaskForm):
 				raise ValidationError(_('Please use a different username.'))
 
 class NewsSearchForm(FlaskForm):
-	languages = SelectField('Language')
-	topic = SelectField('Topic')
-	submit = SubmitField('Submit')
+	languages = SelectField(_l('Language'))
+	topic = SelectField(_l('Topic'))
+	submit = SubmitField(_l('Submit'))
 
 

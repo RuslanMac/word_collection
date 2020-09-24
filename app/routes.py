@@ -1,12 +1,16 @@
 from app import application, db
-from flask import render_template,flash,redirect, url_for, request, jsonify
+from flask import render_template,flash,redirect, url_for, request, jsonify, g
 from werkzeug.urls import url_parse
 from flask_login import current_user, login_user, logout_user, login_required
 from app.forms import LoginForm, RegistrationForm, AddWordForm, EditProfileForm, DictionaryForm, NewsSearchForm
 from app.models import User, Word, Language, Dictionary
 from app.translate import translate
 import random
-from flask_babel import _
+from flask_babel import _, get_locale
+
+@application.before_request
+def before_request():
+	g.locale = str(get_locale())
 
 @application.route('/', methods=['GET', 'POST'])
 @application.route('/index', methods=['GET', 'POST'])
@@ -48,8 +52,8 @@ def register():
 	form.languages1.choices = [(language.id, language.language) for language in Language.query.all()]
 	if form.validate_on_submit():
 		if form.my_language.data in form.languages1.data:
-			flash('Native language can not be a foreign language')
-			return redirect(url_for('register'))
+			flash(_('Native language can not be a foreign language'))
+			return redirect(url_for('register')) 
 		language = Language.query.filter_by(id=form.my_language.data).first()	
 		user = User(username = form.username.data, email=form.email.data, language_id=language.id)
 		user.set_password(form.password.data)
@@ -78,7 +82,7 @@ def edit_profile():
 	form.languages.choices = [(language.id, language.language) for language in Language.query.all()]
 	if form.validate_on_submit():
 		if form.languages.data in current_user.languages:
-			flash('The chosen language is alreay in learning')
+			flash(_('The chosen language is already chosen'))
 		else:
 			current_user.username = form.username.data
 			dictionary = Dictionary(user_id = current_user.id, language_id = form.languages.data)

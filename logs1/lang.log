@@ -50,3 +50,8 @@ NameError: name 'currrent_user' is not defined
 2020-09-24 18:49:18,139 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
 2020-09-24 18:51:28,417 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
 2020-09-24 18:54:34,899 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:58:06,463 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 19:28:07,023 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 19:48:42,332 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:35]
+2020-09-24 20:03:37,564 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:35]
+2020-09-24 20:06:41,253 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:35]
