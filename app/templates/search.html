@@ -70,7 +70,7 @@
 
         }
         } catch(err)
-        {
+        {    
           synonims = "";
         }
         try{
@@ -108,11 +108,14 @@
   }
 }
 
-  function add_word(text, translation, foreign_Language){
+  function add_word(text, translation){
+ 
     $.post('/add_word', {
       text: $(text).val(),
       translation: $(translation).text(),
-      foreign_Language: $(foreign_Language).val()            
+      foreign_Language: $('#selectlanguage1').val(),
+      native_Language: $('#selectlanguage2').val()
+
     });     
   };
   
@@ -144,9 +147,9 @@
     	    <span id="text_id">
             <a href="javascript:translate(
                                   '#word1',
-                                  '#translation_id', 
+                                  '#translation_id',
                                   '#selectlanguage1',
-                                  '#selectlanguage2',
+                                  '#selectlanguage2'    
                                   );">Translate please </a>
           </span>
         </div>
@@ -187,7 +190,6 @@
     <div class="col-md-2">
     <a class="btn btn-primary" href="javascript:add_word('#word1', 
                                                             '#translation_id',
-                                                            '#selectlanguage2',
                                                             );" role="button">Remember the word</a>
   </div>
 </div>

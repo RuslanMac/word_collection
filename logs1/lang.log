@@ -1,4 +1,4 @@
-2020-09-23 01:34:24,092 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-23 17:33:27,247 ERROR: Exception on /edit_profile [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,64 +14,39 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
-    languages = [Language.query.filter_by(id = dictionary).first() for dictionary in current_user.languages]
-  File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
-    languages = [Language.query.filter_by(id = dictionary).first() for dictionary in current_user.languages]
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1893, in filter_by
-    clauses = [
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1894, in <listcomp>
-    _entity_descriptor(self._joinpoint_zero(), key) == value
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 219, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 367, in operate
-    return op(self.__clause_element__(), *other, **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\annotation.py", line 104, in __eq__
-    return self.__element.__class__.__eq__(self, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 759, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
-    return self.operate(eq, other)
-  File "<string>", line 1, in <lambda>
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 67, in operate
-    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 105, in _boolean_compare
-    obj = _check_literal(expr, op, obj)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 373, in _check_literal
-    return expr._bind_param(operator, other, type_=bindparam_type)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4219, in _bind_param
-    return BindParameter(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 1230, in __init__
-    self.type = _compared_to_type.coerce_compared_value(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 578, in coerce_compared_value
-    _coerced_type = _resolve_value_to_type(value)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 3024, in _resolve_value_to_type
-    raise exc.ArgumentError(
-sqlalchemy.exc.ArgumentError: Object <Dictionary 3, user_id 2, language_id 1> is not legal as a SQL literal value
-2020-09-23 01:34:41,166 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:36:44,904 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:37:20,178 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 152, in add_word
-    dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
-AttributeError: 'NoneType' object has no attribute 'id'
+  File "C:\Users\1\web_app5\word_collection\app\routes.py", line 84, in edit_profile
+    dictionary = Dictionary(user_id = currrent_user.id, language_id = form.languages.data)
+NameError: name 'currrent_user' is not defined
+2020-09-23 17:34:31,047 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-23 17:37:10,456 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-23 17:38:20,374 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-23 17:39:01,621 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:07:18,302 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:07:27,234 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:07:34,985 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:08:27,099 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:56:36,327 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:58:04,238 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:58:36,825 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:58:56,492 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 17:59:32,447 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:16:50,149 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:19:02,431 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:20:17,041 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:20:41,224 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:21:40,826 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:26:50,659 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:28:38,326 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:30:30,983 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:34:07,120 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:39:25,652 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:40:08,831 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:41:02,400 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:41:58,141 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:42:31,089 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:45:08,349 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:45:33,903 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:46:15,739 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:49:18,139 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:51:28,417 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]
+2020-09-24 18:54:34,899 INFO: Lang startup [in C:\Users\1\web_app5\word_collection\app\__init__.py:33]

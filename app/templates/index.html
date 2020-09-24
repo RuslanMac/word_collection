@@ -20,17 +20,17 @@
           if ($(this).scrollTop() > 0) {
             $('#navbar').addClass("fixed-top");
             $('body').css('padding-top', $('.navbar').outerHeight() + 'px');
-            $('#navbar1S').css('top', 0);
+            $('#navbar24').css('top', 0);
 
           }else{
             $('#navbar').removeClass('fixed-top');
             $('body').css('padding-top', '0');
-            $('#navbar1S').css('top', 50);
+            $('#navbar24').css('top', 50);
           }
         });
       } 
 
-    function translate(){
+    function translate_word(){
       
       
       $('#exampleModalCenter').modal('show');
@@ -59,18 +59,25 @@
   </script>
 {% endblock %}
 {% block navbar %}
-{{ super() }} 
- <nav class="navbar navbar-default sticky-top " style="position: fixed; top:50;" id="navbar1S">
-  <div class="container">
-  <div class="navbar-header" id="main_nav">
-  <ul class="navbar-nav">
-   <input class="form-control mr-sm-2"      type="search" name="searchWords" placeholder="Search">
-   <span id="text_id">
-            <a href="javascript:translate();">Translate please </a>
-          </span>
-  </ul>
-  </div> <!-- navbar-collapse.// -->
-</div><!-- container //  -->
+{{ super() }}
+ <nav class="navbar sticky-top" style="position:fixed; top:10;" id="navbar24">
+    <div class="container">
+      <form class="form-inline navbar-right">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button  class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="translate_word()">Search</button>
+        </form>
+      </div>
+  </nav>
+<!-- <nav class="navbar navbar-default sticky-top " style="position: fixed; top:50;" id="navbar1S">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <input class="form-control mr-sm-2"      type="search" name="searchWords" placeholder="Search">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:translate();">Translate please </a>
+        </li>
+      </ul>-->
+  <!-- container //  -->
 </nav> 
 {% endblock %}
 {% block app_content %}

@@ -1,4 +1,4 @@
-2020-09-23 00:54:10,851 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-23 01:27:36,335 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,86 +14,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 150, in add_word
-    word = Word(native_language = request.form['text'], foreign_language = request.form['translation'], dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
-AttributeError: 'NoneType' object has no attribute 'id'
-2020-09-23 01:03:02,339 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:03:04,705 ERROR: Exception on /get_languages/True [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 224, in get_languages
-    languages2 = [{"id": language.lit, "language": language.language} for language in languages]
-UnboundLocalError: local variable 'languages' referenced before assignment
-2020-09-23 01:03:37,278 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:04:24,727 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:04:38,410 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:13:34,503 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:14:21,412 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 150, in add_word
-    word = Word(native_language = Language.query.filter_by(lit =    request.form['text']).first().id,foreing_language= Language.query.filter_by(lit= request.form['translation']).first().id, dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
-AttributeError: 'NoneType' object has no attribute 'id'
-2020-09-23 01:19:50,595 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:20:04,464 ERROR: Exception on /add_word [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app\app\routes.py", line 150, in add_word
-    word = Word(native_language = request.form['text'],
-  File "<string>", line 4, in __init__
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\state.py", line 433, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.raise_(
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
-    raise exception
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\state.py", line 430, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 839, in _declarative_constructor
-    raise TypeError(
-TypeError: 'foreing_language' is an invalid keyword argument for Word
-2020-09-23 01:20:47,943 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:22:49,801 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:22:51,804 ERROR: Exception on /get_languages/True [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\1\web_app\app\routes.py", line 223, in get_languages
+    languages = [{"id": language.lit, "language": language.language} for language in languages]
+  File "C:\Users\1\web_app\app\routes.py", line 223, in <listcomp>
+    languages = [{"id": language.lit, "language": language.language} for language in languages]
+AttributeError: 'Dictionary' object has no attribute 'lit'
+2020-09-23 01:30:12,772 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:30:14,788 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -110,12 +37,87 @@ Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
   File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
-    languages = [{"id": language.lit, "language": language.language} for language in languages]
+    languages = [Language.query.filter_by(id=language).first() for language in current_user.languages]
   File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
-    languages = [{"id": language.lit, "language": language.language} for language in languages]
-AttributeError: 'Dictionary' object has no attribute 'lit'
-2020-09-23 01:23:28,483 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:24:11,713 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:24:41,464 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:27:06,108 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
-2020-09-23 01:27:34,352 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+    languages = [Language.query.filter_by(id=language).first() for language in current_user.languages]
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1893, in filter_by
+    clauses = [
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1894, in <listcomp>
+    _entity_descriptor(self._joinpoint_zero(), key) == value
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 219, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 367, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\annotation.py", line 104, in __eq__
+    return self.__element.__class__.__eq__(self, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 759, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 365, in __eq__
+    return self.operate(eq, other)
+  File "<string>", line 1, in <lambda>
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 67, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 105, in _boolean_compare
+    obj = _check_literal(expr, op, obj)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 373, in _check_literal
+    return expr._bind_param(operator, other, type_=bindparam_type)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 4219, in _bind_param
+    return BindParameter(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 1230, in __init__
+    self.type = _compared_to_type.coerce_compared_value(
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 578, in coerce_compared_value
+    _coerced_type = _resolve_value_to_type(value)
+  File "c:\users\1\web_app1\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 3024, in _resolve_value_to_type
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Object <Dictionary 3, user_id 2, language_id 1> is not legal as a SQL literal value
+2020-09-23 01:32:13,148 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:32:15,345 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
+    languages = [language.first() for language in current_user.languages]
+  File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
+    languages = [language.first() for language in current_user.languages]
+AttributeError: 'Dictionary' object has no attribute 'first'
+2020-09-23 01:33:32,240 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]
+2020-09-23 01:33:34,199 ERROR: Exception on /get_languages/1 [POST] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app\app\routes.py", line 222, in get_languages
+    languages = [Language.query.filter_by(id = dictionary.first().language_id).first()  for dictionary in current_user.languages]
+  File "C:\Users\1\web_app\app\routes.py", line 222, in <listcomp>
+    languages = [Language.query.filter_by(id = dictionary.first().language_id).first()  for dictionary in current_user.languages]
+AttributeError: 'Dictionary' object has no attribute 'first'
+2020-09-23 01:34:22,885 INFO: Lang startup [in C:\Users\1\web_app\app\__init__.py:33]

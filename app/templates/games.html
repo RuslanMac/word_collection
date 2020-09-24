@@ -1,38 +1,46 @@
 {% extends "base.html" %}
 {% block app_content %}
 <div class="container-fluid">
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">True or False</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="{{ url_for('yes_not') }}" class="btn-primary">Play now</a>
+  <div class="row">
+      <div class="card-deck">
+        <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">True or False</h5>
+            <p class="card-text">In this game you should define if a word's translation is right or wrong.</p>
+            <a href="{{ url_for('yes_not') }}" class="btn btn-primary">Play now</a>
+          </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
       </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
     </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Game 5</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Game 5</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+   </div>
+   <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Game 7</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
     </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
     </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Game 7</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
   </div>
 </div>
 

@@ -75,13 +75,16 @@ def logout():
 @login_required
 def edit_profile():
 	form = EditProfileForm(current_user.username)
+	form.languages.choices = [(language.id, language.language) for language in Language.query.all()]
 	if form.validate_on_submit():
 		if form.languages.data in current_user.languages:
 			flash('The chosen language is alreay in learning')
-		current_user.username = form.username.data
-		db.session.commit()
-		dictionary = Dictionary(user_id = currrent_user.id, language_id = form.languages.data)
-		flash(_('Your changes have been saved!'))
+		else:
+			current_user.username = form.username.data
+			dictionary = Dictionary(user_id = current_user.id, language_id = form.languages.data)
+			db.session.add(dictionary)
+			db.session.commit()
+			flash(_('Your changes have been saved!'))
 		return redirect(url_for('edit_profile'))
 	return render_template('edit_profile.html', title='Edit Profile', form = form)
 
@@ -93,7 +96,7 @@ def search():
 	languages_id = [language.language_id for language in dictionaries]
 	languages = [Language.query.filter_by(id=language_id).first() for language_id in languages_id]
 	form.languages.choices = [(language.id, language.language) for language in languages]
-	return render_template('search.html', title = 'Search', form=form )
+	return render_template('search.html', title = 'Search', form=form, user_language = current_user.language )
 
 @application.route('/mywords', methods=['GET','POST'])
 @login_required
@@ -147,9 +150,14 @@ def translate_text():
 @application.route('/add_word', methods=['POST'])
 @login_required
 def add_word():
+	foreign_language = ""
+	if current_user.language.lit == request.form['foreign_Language']:
+		foreign_language = request.form['native_Language']
+	else:
+		foreign_language = request.form['foreign_Language']
 	word = Word(native_language = request.form['text'],
 				foreign_language= request.form['translation'], 
-				dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=request.form['foreign_Language']).first().id).filter_by(user_id = current_user.id).first().id)
+				dictionary_id =Dictionary.query.filter_by(language_id=Language.query.filter_by(lit=foreign_language).first().id).filter_by(user_id = current_user.id).first().id)
 	db.session.add(word)
 	db.session.commit()
 	flash(_('The word has been added in the dictionary ! '))
@@ -202,9 +210,6 @@ def get_next():
 @application.route('/words_errors_collection', methods=['GET', 'POST'])
 def get_words_errors():
 	return render_template('words_errors.html', title='Words Errors')
-
-
-
 
 
 @application.route('/initPage', methods=['POST','GET'])

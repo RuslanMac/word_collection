@@ -1,4 +1,4 @@
-2020-09-21 22:45:05,853 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+2020-09-21 23:01:18,692 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,113 +15,102 @@ Traceback (most recent call last):
   File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
   File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(language=form.languages.data, category=form.topic.data)
-NameError: name 'NEWSAPI' is not defined
-2020-09-21 22:45:54,217 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:45:57,187 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(language=form.languages.data, category=form.topic.data)
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
-2020-09-21 22:47:46,139 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:47:51,017 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_top_headlines(category=form.languages.data, language = form.languages.data)
-  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
-    raise NewsAPIException(r.json())
-newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
-2020-09-21 22:48:35,684 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:59:08,982 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 22:59:12,009 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.everything(category = form.topic.data, language = form.languages.data)
-AttributeError: 'NewsApiClient' object has no attribute 'everything'
-2020-09-21 23:00:11,383 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:00:14,256 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_everything(category = form.topic.data, language = form.languages.data)
-TypeError: get_everything() got an unexpected keyword argument 'category'
-2020-09-21 23:00:29,226 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
-2020-09-21 23:00:31,493 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
-    newsapi = NEWSAPI.get_everything(language = form.languages.data)
+    newsapi = NEWSAPI.get_everything()
   File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 326, in get_everything
     raise NewsAPIException(r.json())
 newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing, the scope of your search is too broad. Please set any of the following required parameters and try again: q, qInTitle, sources, domains.'}
-2020-09-21 23:01:15,368 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:02:36,273 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:04:29,842 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:05:15,691 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:05:40,306 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:06:00,557 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:06:55,765 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:07:53,678 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:09:47,038 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:09:49,690 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(category=form.topic.data, language=form.languages.data)
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 169, in get_top_headlines
+    raise NewsAPIException(r.json())
+newsapi.newsapi_exception.NewsAPIException: {'status': 'error', 'code': 'parametersMissing', 'message': 'Required parameters are missing. Please set any of the following parameters and try again: sources, q, language, country, category.'}
+2020-09-21 23:10:52,615 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:10:56,312 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(category=str(form.topic.data), language=str(form.languages.data))
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 120, in get_top_headlines
+    raise ValueError("invalid language")
+ValueError: invalid language
+2020-09-21 23:11:24,782 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:11:26,385 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\1\web_app1\app\routes.py", line 19, in index
+    newsapi = NEWSAPI.get_top_headlines(category=str(form.topic.data))
+  File "c:\users\1\web_app1\venv\lib\site-packages\newsapi\newsapi_client.py", line 140, in get_top_headlines
+    raise ValueError("invalid category")
+ValueError: invalid category
+2020-09-21 23:12:16,295 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:13:54,719 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:16:25,163 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:20:24,010 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:42:33,212 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:47:52,911 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:48:03,139 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:48:04,997 ERROR: Exception on /index [GET] [in c:\users\1\web_app1\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\1\web_app1\venv\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-09-21 23:49:01,736 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:49:11,054 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-21 23:50:30,412 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
+2020-09-22 00:02:55,161 INFO: Lang startup [in C:\Users\1\web_app1\app\__init__.py:33]
